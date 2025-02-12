@@ -1,4 +1,4 @@
-package com.ecommerce.pricing.domain.repository;
+package com.ecommerce.pricing.application.port.out;
 
 import java.time.LocalDateTime;
 import java.util.List;

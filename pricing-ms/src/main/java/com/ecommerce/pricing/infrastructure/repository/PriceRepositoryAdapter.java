@@ -1,11 +1,11 @@
-package com.ecommerce.pricing.infrastructure.adapter.repository;
+package com.ecommerce.pricing.infrastructure.repository;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.ecommerce.pricing.domain.repository.PriceRepository;
+import com.ecommerce.pricing.application.port.out.PriceRepository;
 import com.ecommerce.pricing.domain.model.Price;
 
 import lombok.RequiredArgsConstructor;
