@@ -20,8 +20,8 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.ecommerce.pricing.application.dto.PricesResponseDTO;
+import com.ecommerce.pricing.application.port.out.PriceRepository;
 import com.ecommerce.pricing.domain.model.Price;
-import com.ecommerce.pricing.domain.repository.PriceRepository;
 import com.ecommerce.pricing.infrastructure.exception.PriceNotFoundException;
 
 @ExtendWith(MockitoExtension.class)

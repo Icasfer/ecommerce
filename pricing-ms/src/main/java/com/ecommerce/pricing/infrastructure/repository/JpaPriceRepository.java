@@ -1,4 +1,4 @@
-package com.ecommerce.pricing.infrastructure.adapter.repository;
+package com.ecommerce.pricing.infrastructure.repository;
 
 import java.time.LocalDateTime;
 import java.util.List;
