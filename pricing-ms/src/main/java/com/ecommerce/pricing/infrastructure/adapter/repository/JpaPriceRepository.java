@@ -12,5 +12,5 @@ import com.ecommerce.pricing.domain.model.Price;
 @Repository
 public interface JpaPriceRepository extends JpaRepository<Price, Long> {
     @Query("SELECT p FROM Price p WHERE p.brandId = :brandId AND p.productId = :productId AND :applicationDate BETWEEN p.startDate AND p.endDate")
-    List<Price> findPrices(Long brandId, Long productId, LocalDateTime applicationDate);
+    List<Price> findPrices(Integer brandId, Long productId, LocalDateTime applicationDate);
 }

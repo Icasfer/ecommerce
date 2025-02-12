@@ -9,9 +9,10 @@ import lombok.Getter;
 @Builder
 public class PricesResponseDTO {
     private Long productId;
-    private Long brandId;
-    private Long priceList;
+    private Integer brandId;
+    private Integer priceList;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
     private Double finalPrice;
+    private String currency;
 }
