@@ -21,7 +21,7 @@ public class PriceController {
 
     @GetMapping
     public Optional<PricesResponseDTO> getPrice(
-            @RequestParam Long brandId,
+            @RequestParam Integer brandId,
             @RequestParam Long productId,
             @RequestParam String applicationDate) {
         return getProductPriceUseCase.getProductPrice(brandId, productId, LocalDateTime.parse(applicationDate));

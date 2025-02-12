@@ -18,15 +18,18 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class PriceService implements GetProductPriceUseCase {
     private final PriceRepository priceRepository;
-    
+
     @Override
-    public Optional<PricesResponseDTO> getProductPrice(Long brandId, Long productId, LocalDateTime applicationDate) {
+    public Optional<PricesResponseDTO> getProductPrice(Integer brandId, Long productId, LocalDateTime applicationDate) {
         return priceRepository.findPrices(brandId, productId, applicationDate).stream()
-        .max(Comparator.comparingLong(Price::getPriority))
-        .map(price -> PricesResponseDTO.builder()
-                .productId(price.getProductId()).brandId(price.getBrandId()).priceList(price.getPriceList())
-                .startDate(price.getStartDate()).endDate(price.getEndDate()).finalPrice(price.getFinalPrice())
-                .build())
-        .or(() -> { throw new PriceNotFoundException("No product price found for given criteria"); });
+                .max(Comparator.comparingInt(Price::getPriority))
+                .map(price -> PricesResponseDTO.builder()
+                        .productId(price.getProductId()).brandId(price.getBrandId()).priceList(price.getPriceList())
+                        .startDate(price.getStartDate()).endDate(price.getEndDate()).finalPrice(price.getFinalPrice())
+                        .currency(price.getCurrency())
+                        .build())
+                .or(() -> {
+                    throw new PriceNotFoundException("No product price found for given criteria");
+                });
     }
 }

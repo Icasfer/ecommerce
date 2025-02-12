@@ -15,12 +15,12 @@ public class Price {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long brandId;
+    private Integer brandId;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
-    private Long priceList;
+    private Integer priceList;
     private Long productId;
-    private Long priority;
+    private Integer priority;
     private Double finalPrice;
     private String currency;
 }
