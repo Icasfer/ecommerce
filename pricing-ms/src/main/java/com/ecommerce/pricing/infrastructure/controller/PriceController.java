@@ -3,6 +3,7 @@ package com.ecommerce.pricing.infrastructure.controller;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,7 +24,7 @@ public class PriceController {
     public Optional<PricesResponseDTO> getPrice(
             @RequestParam Integer brandId,
             @RequestParam Long productId,
-            @RequestParam String applicationDate) {
-        return getProductPriceUseCase.getProductPrice(brandId, productId, LocalDateTime.parse(applicationDate));
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime applicationDate) {
+        return getProductPriceUseCase.getProductPrice(brandId, productId, applicationDate);
     }
 }
